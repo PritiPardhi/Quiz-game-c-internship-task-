@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+
+// Function prototypes
+void askQuestion(const char* question, const char* options[], int correctOption, int* score);
+
+
+int main() {
+    int score = 0;
+
+
+    printf("Welcome to the Quiz Game!\n");
+    printf("You will be asked a series of multiple-choice questions.\n");
+    printf("Choose the correct option by entering the corresponding number.\n\n");
+
+
+    // Questions, options, and answers
+    const char* question1 = "What is the capital of France?";
+    const char* options1[] = {"1. Berlin", "2. Madrid", "3. Paris", "4. Rome"};
+    askQuestion(question1, options1, 3, &score);
+
+
+    const char* question2 = "Which planet is known as the Red Planet?";
+    const char* options2[] = {"1. Earth", "2. Mars", "3. Jupiter", "4. Saturn"};
+    askQuestion(question2, options2, 2, &score);
+
+
+    const char* question3 = "What is the largest ocean on Earth?";
+    const char* options3[] = {"1. Atlantic Ocean", "2. Indian Ocean", "3. Arctic Ocean", "4. Pacific Ocean"};
+    askQuestion(question3, options3, 4, &score);
+
+
+    printf("\nQuiz Over! Your total score is: %d\n", score);
+
+
+    return 0;
+}
+
+
+// Function to display a question and check the user's answer
+void askQuestion(const char* question, const char* options[], int correctOption, int* score) {
+    int answer;
+
+
+    // Display the question and options
+    printf("%s\n", question);
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n", options[i]);
+    }
+
+
+    // Get user's answer
+    printf("Enter the number of your choice: ");
+    scanf("%d", &answer);
+
+
+    // Check if the answer is correct
+    if (answer == correctOption) {
+        printf("Correct!\n");
+        (*score)++;
+    } else {
+        printf("Incorrect. The correct answer was option %d.\n", correctOption);
+    }
+    printf("\n");
+}
+
+
+
+
+
